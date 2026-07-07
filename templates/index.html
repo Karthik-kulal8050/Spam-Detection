@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Message Detector</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>📩 Spam Message Detector</h1>
+
+    <p class="subtitle">
+        Enter a message and predict whether it is Spam or Ham.
+    </p>
+
+    <form action="/predict" method="POST">
+
+        <textarea
+            name="message"
+            placeholder="Type your message here..."
+            required>{{ message if message else '' }}</textarea>
+
+        <button type="submit">
+            Predict
+        </button>
+
+    </form>
+
+    {% if prediction %}
+
+    <div class="result">
+
+        {% if prediction == "Spam" %}
+
+            <h2 class="spam">Spam Message</h2>
+
+        {% else %}
+
+            <h2 class="ham">Ham Message</h2>
+
+        {% endif %}
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
