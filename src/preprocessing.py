@@ -1,13 +1,12 @@
+import nltk
+nltk.download("punkt")
+nltk.download("stopwords")
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 
 ps = PorterStemmer()
 STOPWORDS = set(stopwords.words("english"))
-import nltk
-
-nltk.download("punkt")
-nltk.download("stopwords")
 
 def transform_text(text):
 
